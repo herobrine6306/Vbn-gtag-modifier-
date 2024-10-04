@@ -5,38 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VBN GTag Modder</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #password {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        #adb-instructions {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+        /* Styles omitted for brevity */
     </style>
 </head>
 <body>
@@ -79,7 +48,6 @@
             // Generate a random connection ID
             const connectionId = 'CONN-' + Math.random().toString(36).substr(2, 9);
             document.getElementById('password').innerText = `Your Connection ID: ${connectionId}`;
-            // Save the connection ID somewhere, for example, a global variable or a server
         };
 
         document.getElementById('mod-button').onclick = function() {
@@ -89,3 +57,4 @@
     </script>
 </body>
 </html>
+
