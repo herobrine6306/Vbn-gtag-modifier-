@@ -29,18 +29,32 @@
         input[type="file"] {
             margin-top: 20px;
         }
+        #password {
+            font-weight: bold;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to VBN GTag Modder</h1>
     <p>Use this tool to mod Gorilla Tag on your Quest 2.</p>
+    
     <button id="enable-adb">Enable ADB Debugging</button>
+    <button id="connect">Connect</button>
+    <div id="password"></div>
+    
     <input type="file" id="mod-file" accept=".mod">
     <button id="upload-mod">Upload Mod</button>
 
     <script>
         document.getElementById('enable-adb').onclick = function() {
-            alert('To enable ADB Debugging:\n1. Go to your Quest 2 settings.\n2. Navigate to Device.\n3. Enable Developer Mode.\n4. Connect your headset to the computer or follow the on-screen instructions to set it up.');
+            alert('To enable ADB Debugging:\n1. Plug in your Quest 2 headset to your computer.\n2. Go to your Quest 2 settings.\n3. Navigate to Device.\n4. Enable Developer Mode.\n5. Open your computer’s terminal (Command Prompt or Terminal).\n6. Type `adb devices` to check if your headset is recognized. If not, install ADB drivers for your device.');
+        };
+
+        document.getElementById('connect').onclick = function() {
+            // Generate a random 4-digit password
+            const password = Math.floor(1000 + Math.random() * 9000); // Random 4-digit number
+            document.getElementById('password').innerText = `Your Connection Password: ${password}`;
         };
 
         document.getElementById('upload-mod').onclick = function() {
@@ -54,3 +68,4 @@
     </script>
 </body>
 </html>
+
