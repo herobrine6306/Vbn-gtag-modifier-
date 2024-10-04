@@ -30,7 +30,7 @@
             font-weight: bold;
             margin-top: 20px;
         }
-        #instructions, #adb-instructions {
+        #adb-instructions {
             margin-top: 20px;
             padding: 20px;
             background-color: #fff;
@@ -45,38 +45,28 @@
     
     <button id="enable-adb">Enable ADB Debugging</button>
     <button id="connect">Connect</button>
-    <div id="password"></div>
-    
-    <input type="file" id="mod-file" accept=".rar">
-    <button id="upload-mod">Upload Mod</button>
     <button id="mod-button">Mod</button>
-
-    <div id="instructions" style="display: none;">
-        <h2>How to Upload Mods</h2>
-        <p>After uploading your mod file, follow these instructions to install it:</p>
-        <ol>
-            <li>Connect your Oculus Quest 2 to your computer or Chromebook.</li>
-            <li>Click on the Android folder in the connected device.</li>
-            <li>Navigate to the <code>data/data/com.axos.gorillatag/files/</code> directory.</li>
-            <li>Upload your mod file here.</li>
-        </ol>
-        <p>For your convenience, the mod will be prepared for easy copying!</p>
-    </div>
+    <div id="password"></div>
 
     <div id="adb-instructions" style="display: none;">
         <h2>ADB Debugging Instructions</h2>
         <p>To enable ADB debugging on your Oculus Quest 2:</p>
         <ol>
-            <li>Plug in your Quest 2 headset to your computer.</li>
-            <li>Open the Oculus app on your smartphone.</li>
-            <li>Go to "Settings" in the app.</li>
-            <li>Select your Quest 2 headset from the list.</li>
-            <li>Scroll down and toggle "Developer Mode" on.</li>
-            <li>Once Developer Mode is enabled, connect your Quest 2 to your computer via USB.</li>
-            <li>Open your computer’s terminal (Command Prompt on Windows or Terminal on macOS).</li>
-            <li>Type <code>adb devices</code> to check if your headset is recognized. If not, ensure that ADB drivers are installed for your device.</li>
+            <li>First, enable Developer Mode on your Quest 2:</li>
+            <ol>
+                <li>Open the Oculus mobile app.</li>
+                <li>Go to <strong>Settings</strong>.</li>
+                <li>Select <strong>Devices</strong> and choose your Quest 2 headset.</li>
+                <li>Find <strong>Developer Mode</strong> and toggle it on.</li>
+            </ol>
+            <li>Next, enable USB Debugging on your headset:</li>
+            <ol>
+                <li>Put on your Quest 2 headset and navigate to <strong>Settings</strong>.</li>
+                <li>Select <strong>System</strong> > <strong>Developer</strong>.</li>
+                <li>Toggle the <strong>USB Debugging</strong> option to on.</li>
+            </ol>
         </ol>
-        <p>Note: If you encounter issues with recognition, you may need to install ADB drivers specific to your operating system.</p>
+        <p>Once enabled, you can connect your headset to your computer and use ADB commands.</p>
     </div>
 
     <script>
@@ -90,18 +80,6 @@
             const connectionId = 'CONN-' + Math.random().toString(36).substr(2, 9);
             document.getElementById('password').innerText = `Your Connection ID: ${connectionId}`;
             // Save the connection ID somewhere, for example, a global variable or a server
-        };
-
-        document.getElementById('upload-mod').onclick = function() {
-            const modFileInput = document.getElementById('mod-file');
-            if (modFileInput.files.length === 0) {
-                alert('Please select a mod file to upload.');
-                return;
-            }
-
-            // Provide instructions after a mod file is uploaded
-            document.getElementById('instructions').style.display = 'block';
-            alert(`Mod file "${modFileInput.files[0].name}" is ready for upload!\n\nFollow the instructions above to place it in the correct directory on your Quest 2.`);
         };
 
         document.getElementById('mod-button').onclick = function() {
