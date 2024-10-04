@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBN GTag Modder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to VBN GTag Modder</h1>
+    <p>Use this tool to mod Gorilla Tag on your Quest 2.</p>
+    <button id="enable-adb">Enable ADB Debugging</button>
+    <input type="file" id="mod-file" accept=".mod">
+    <button id="upload-mod">Upload Mod</button>
+
+    <script>
+        document.getElementById('enable-adb').onclick = function() {
+            alert('To enable ADB Debugging:\n1. Go to your Quest 2 settings.\n2. Navigate to Device.\n3. Enable Developer Mode.\n4. Connect your headset to the computer or follow the on-screen instructions to set it up.');
+        };
+
+        document.getElementById('upload-mod').onclick = function() {
+            const modFileInput = document.getElementById('mod-file');
+            if (modFileInput.files.length === 0) {
+                alert('Please select a mod file to upload.');
+                return;
+            }
+            alert('Mod file uploaded! Ensure your app is connected and ready to load the mod.');
+        };
+    </script>
+</body>
+</html>
